@@ -19,9 +19,7 @@ class StoryList {
    *  - returns the StoryList instance.*
    */
 
-  // TODO: Note the presence of `static` keyword: this indicates that getStories
-  // is **not** an instance method. Rather, it is a method that is called on the
-  // class directly. Why doesn't it make sense for getStories to be an instance method?
+  // getStories doesn't need anything from StoryList (variables, methods), so really it's only here for organizational purpuses
 
   static async getStories() {
     // query the /stories endpoint (no auth required)
