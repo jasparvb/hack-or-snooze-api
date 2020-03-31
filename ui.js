@@ -148,24 +148,24 @@ $(async function() {
     if(currentUser) {
       let $this = $(e.target);
       let storyId = $this.closest('li').attr('id');
-      //if clicked on an empty star to favorite
+      //runs if you clicked on an empty star in order to favorite the story
       if($this.hasClass('far')) { 
-        $favoritedArticles.find('h5').remove();
         $ownStories.find(`#${storyId} .far`).toggleClass('far fas');
         $allStoriesList.find(`#${storyId} .far`).toggleClass('far fas');
         const favedStory = await currentUser.addFavorite(storyId);
         const result = generateStoryHTML(favedStory);
+        $favoritedArticles.find('h5').remove();
         $favoritedArticles.append(result);
-  
       }
-      //if clicked on a filled star to unfavorite
-      else if($this.hasClass('fas')) { 
-        $this.toggleClass('far fas');
-        $favoritedArticles.find(`#${storyId}`).remove();
+      //runs if you clicked on a filled star to unfavorite the story
+      else if($this.hasClass('fas')) {
+        $ownStories.find(`#${storyId} .fa-star.fas`).toggleClass('far fas');
+        $allStoriesList.find(`#${storyId} .fas`).toggleClass('far fas');
         await currentUser.deleteFavorite(storyId);
+        $favoritedArticles.find(`#${storyId}`).remove();
         checkForEmptyLists();
       }
-      //if clicked on the trash can to delete
+      //runs if you clicked on the trash can icon to delete the story
       if($this.hasClass('fa-trash-alt')) {
         $this.closest('li').remove();
         await currentUser.deleteStory(storyId);
