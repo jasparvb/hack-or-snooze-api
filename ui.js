@@ -120,6 +120,7 @@ $(async function() {
 
   $("body").on("click", "#nav-all", async function() {
     hideElements();
+    $('.active').removeClass('active');
     await generateStories();
     $allStoriesList.show();
   });
@@ -130,6 +131,9 @@ $(async function() {
 
   $('.main-nav-links a, #nav-user-profile').on("click", function(e) {
     hideElements();
+    $('.active').removeClass('active');
+    let $this = $(e.target);
+    $this.addClass('active');
     // Show the Submit Story Form
     if(e.target.id === 'nav-submit') {
       $submitForm.slideDown();

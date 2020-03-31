@@ -157,6 +157,10 @@ form > hr {
   color: crimson;
 }
 
+.fas:hover, .far:hover {
+  transform: scale(1.1);
+}
+
 .pencil:hover {
   color: darkblue;
 }
@@ -169,7 +173,7 @@ form > hr {
 }
 
 .article-link:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .article-hostname:hover {
@@ -215,6 +219,13 @@ form > hr {
   background-color: #f6f6ef;
 }
 
+.active {
+  color: white;
+}
+
+.active:hover {
+  text-decoration: none;
+}
 
 /** responsive queries for tightening things up for mobile. */
 
