@@ -48,7 +48,6 @@ class StoryList {
       token: user.loginToken,
       story: newStory
     });
-    console.log(response);
     // build a new Story instance from the API response
     const responseStory = new Story(response.data.story);
     return responseStory;
