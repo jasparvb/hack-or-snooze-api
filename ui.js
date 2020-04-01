@@ -216,13 +216,16 @@ $(async function() {
 
     // show the stories
     $allStoriesList.show();
-
-    // update the navigation bar
+    
+    // update the navigation bar, fill in user profile data
+    buildUserProfile();
     showNavForLoggedInUser();
   }
 
   //Add filler text for when the favorite list or my stories list are empty
   function checkForEmptyLists() {
+    console.log($ownStories.children(), $ownStories.children().length)
+    console.log($favoritedArticles.children(), $favoritedArticles.children().length)
     if($ownStories.children().length === 0) $ownStories.append($('<h5>No stories added by user yet!</h5>'));
     if($favoritedArticles.children().length === 0) $favoritedArticles.append($('<h5>No favorites added!</h5>'));
   }
